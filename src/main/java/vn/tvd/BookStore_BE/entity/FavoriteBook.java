@@ -5,18 +5,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "review")
-public class Review {
+@Table(name = "favorite_book")
+public class FavoriteBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "review_id")
-    private long reviewId;
-
-    @Column(name = "rating_point")
-    private float ratingPoint;
-
-    @Column(name = "review_content")
-    private String reviewContent;
+    @Column(name = "favorite_book_id")
+    private int favoriteBookId;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "book_id", nullable = false)
