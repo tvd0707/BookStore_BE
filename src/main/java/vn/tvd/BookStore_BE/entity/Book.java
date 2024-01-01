@@ -15,7 +15,7 @@ public class Book {
     private int bookId;
 
     @Column(name = "book_name")
-    private int bookName;
+    private String bookName;
 
     @Column(name = "author", length = 512)
     private String author;
@@ -24,7 +24,7 @@ public class Book {
     private String ISBN;
 
     @Column(name = "book_desc", columnDefinition = "TEXT")
-    private double bookDesc;
+    private String bookDesc;
 
     @Column(name = "list_price")
     private double listPrice;
