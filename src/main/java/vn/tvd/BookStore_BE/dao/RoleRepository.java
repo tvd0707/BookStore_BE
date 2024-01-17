@@ -6,4 +6,5 @@ import vn.tvd.BookStore_BE.entity.Role;
 
 @RepositoryRestResource(path = "roles")
 public interface RoleRepository extends JpaRepository<Role, Integer> {
+    public Role findByName(String name);
 }

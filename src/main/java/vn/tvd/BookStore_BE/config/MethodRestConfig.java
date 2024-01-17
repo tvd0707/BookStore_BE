@@ -14,19 +14,23 @@ import vn.tvd.BookStore_BE.entity.Category;
 public class MethodRestConfig implements RepositoryRestConfigurer {
     @Autowired
     private EntityManager entityManager;
-    private String url = "http://localhost:8080";
+//    private String url = "http://localhost:3000";
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         //expose Id
         config.exposeIdsFor(entityManager.getMetamodel().getEntities().stream().map(Type::getJavaType).toArray(Class[]::new));
 
-        HttpMethod[] disableMethods = {
-                HttpMethod.POST,
-                HttpMethod.PUT,
-                HttpMethod.PATCH,
-                HttpMethod.DELETE,
-        };
+//        cors.addMapping("/**")
+//                .allowedOrigins(url)
+//                .allowedMethods("GET", "POST", "PUT", "DELETE");
+
+//        HttpMethod[] disableMethods = {
+//                HttpMethod.POST,
+//                HttpMethod.PUT,
+//                HttpMethod.PATCH,
+//                HttpMethod.DELETE,
+//        };
 
 //        Chặn các phương thức của class entity cụ thể
 //        blockHttpMethods(Category.class, config, disableMethods);

@@ -41,6 +41,12 @@ public class User {
     @Column(name = "order_address")
     private String orderAddress;
 
+    @Column(name = "actived")
+    private boolean actived;
+
+    @Column(name = "active_code")
+    private String activeCode;
+
     @OneToMany(mappedBy = "user",
             fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
@@ -51,7 +57,7 @@ public class User {
             cascade = CascadeType.ALL)
     List<FavoriteBook> favoriteBookList;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
